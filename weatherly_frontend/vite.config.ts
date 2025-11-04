@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: "https://backend-lymi.onrender.com",
         changeOrigin: true,
         secure: false,
       },
