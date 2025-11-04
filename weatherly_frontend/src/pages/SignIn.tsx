@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Cloud, Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { API_BASE_URL } from "@/config/api";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,10 +21,29 @@ const SignIn = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign in logic here
-    console.log("Sign in attempt:", formData);
+    setLoading(true);
+    try {
+  const res = await fetch(`${API_BASE_URL}/api/auth/signin`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email, password: formData.password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Sign in failed');
+      // store token and redirect
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      navigate('/');
+    } catch (err: any) {
+      alert(err.message || 'Sign in failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

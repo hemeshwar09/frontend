@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Cloud, Eye, EyeOff, Mail, Lock, User } from "lucide-react";
+import { API_BASE_URL } from "@/config/api";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -23,10 +24,33 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign up logic here
-    console.log("Sign up attempt:", formData);
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    setLoading(true);
+    try {
+  const res = await fetch(`${API_BASE_URL}/api/auth/signup`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: formData.name, email: formData.email, password: formData.password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Sign up failed');
+      // store token and redirect
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      navigate('/');
+    } catch (err: any) {
+      alert(err.message || 'Sign up failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
