@@ -1,0 +1,17 @@
+[
+  {"name":"China","iso2":"CN","capital":"Beijing","population":1402112000,"area_km2":9596961,"gdp_usd":17734.06},
+  {"name":"India","iso2":"IN","capital":"New Delhi","population":1380004000,"area_km2":3287263,"gdp_usd":3229.09},
+  {"name":"Indonesia","iso2":"ID","capital":"Jakarta","population":273523621,"area_km2":1904569,"gdp_usd":1119.19},
+  {"name":"Pakistan","iso2":"PK","capital":"Islamabad","population":220892331,"area_km2":881912,"gdp_usd":278.22},
+  {"name":"Bangladesh","iso2":"BD","capital":"Dhaka","population":164689383,"area_km2":147570,"gdp_usd":416.26},
+  {"name":"Japan","iso2":"JP","capital":"Tokyo","population":125960000,"area_km2":377975,"gdp_usd":5065.84},
+  {"name":"Philippines","iso2":"PH","capital":"Manila","population":109581085,"area_km2":300000,"gdp_usd":402.62},
+  {"name":"Vietnam","iso2":"VN","capital":"Hanoi","population":97338583,"area_km2":331212,"gdp_usd":409.13},
+  {"name":"Turkey","iso2":"TR","capital":"Ankara","population":84339067,"area_km2":783562,"gdp_usd":815.75},
+  {"name":"Iran","iso2":"IR","capital":"Tehran","population":83992953,"area_km2":1648195,"gdp_usd":231.03},
+  {"name":"Thailand","iso2":"TH","capital":"Bangkok","population":69950800,"area_km2":513120,"gdp_usd":505.51},
+  {"name":"South Korea","iso2":"KR","capital":"Seoul","population":51269183,"area_km2":100210,"gdp_usd":1646.22},
+  {"name":"Saudi Arabia","iso2":"SA","capital":"Riyadh","population":34813871,"area_km2":2149690,"gdp_usd":833.54},
+  {"name":"Malaysia","iso2":"MY","capital":"Kuala Lumpur","population":32365999,"area_km2":330803,"gdp_usd":372.84},
+  {"name":"Singapore","iso2":"SG","capital":"Singapore","population":5850342,"area_km2":721,"gdp_usd":397.35}
+]
